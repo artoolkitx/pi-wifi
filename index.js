@@ -13,8 +13,8 @@ var currentInterface = defaultInterface;
 
 const commands = {
   detectSupplicant: 'ps -fea | grep -v grep | grep wpa_supplicant',
-  interfaceDown: 'ifdown --force :INTERFACE',
-  interfaceUp: 'ifup :INTERFACE',
+  interfaceDown: 'ifconfig :INTERFACE down',
+  interfaceUp: 'ifconfig :INTERFACE up',
   scan: 'sudo iwlist wlan0 scan | grep ESSID | cut \'"\' -f2',
   startSupplicant: 'sudo wpa_supplicant -Dwext -c :CONFIG_FILE -B -i :INTERFACE  && sudo chattr -i :DNS_FILE',
   wpaDisconnect: 'wpa_cli disconnect',
